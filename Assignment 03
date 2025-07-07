@@ -1,0 +1,35 @@
+Q) Create a class 'Box' having a parameterized constructor with an object argument to initialize 'length', 'breadth' and 'height' and also create a method 'Volume()' which returns the volume of the box. Write a Java program to create the class and a test driver main class to test all functions mentioned above.
+ans:- 
+
+class Box{
+    float length;
+    float breadth;
+    float height;
+    
+    //Parameterized Constructor
+    Box(float l,float b,float h){
+        length=l;
+        breadth=b;
+        height=h;
+    }
+    //Copy Constructor
+    Box(Box b2){
+        length=b2.length;
+        breadth=b2.breadth;
+        height=b2.height;
+    }
+    //Class Method
+    void calVolume(){
+        float volume=length*breadth*height;
+        System.out.println(" Total volume: "+ volume);
+    }
+}
+class BoxDriver
+{
+    public static void main(String[] args)
+    {
+        Box b1=new Box(20,20,15);
+        Box b2=new Box(b1);
+        b2.calVolume();
+    }
+}
