@@ -1,0 +1,22 @@
+Q) Create a class to print the area of a square and a rectangle. The class has two methods with the same name but different number of parameters. The method for printing the area of the rectangle has two parameters which are length and breadth respectively while the other method for printing area of square has one parameter which is side of square. Write a java program to create the above class with all the methods and a test driver main class to test and compile the polymorphism.
+ans:-
+
+class CalArea{
+    //Area Of Rectangle
+    void printArea(double length,double breadth){
+        double rectangle=length*breadth;
+        System.out.println("Area Of Rectangle: "+ rectangle);
+    }
+    //Area Of Square
+    void printArea(double side){
+        double square=side*side;
+        System.out.println("Area Of Square: "+ square);
+    }
+}
+class TestDriver {
+    public static void main(String[]args){
+    CalArea calc=new CalArea();
+    calc.printArea(35,25);
+    calc.printArea(8);
+    }
+}
