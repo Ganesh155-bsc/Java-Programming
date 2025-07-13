@@ -1,0 +1,57 @@
+Q) A superclass Worker has been defined to store the details of a worker. Define a subclass Wages to compute the monthly wages of the worker. The details of both the classes are given below:
+Class Name : Worker Instance Variables:
+Name: to store the name of the worker Basic : to store the basic pay in decimals
+Methods:
+Worker(...) : Parameterized constructor to assign values to the instance variables void display() : display the worker's details
+
+Class Name : Wages Instance Variables:
+hrs : store the hours worked rate : store the rate per hour
+wage : store the overall wage of the worker Methods:
+Wages(...) : Parameterized constructor to assign values to the instance variables of both the classes.
+double overtime() : Calculates and returns the overtime amount as (hours* rate)
+void display() : Calculates the wage using the formula wage= overtime amount+ basic pay and displays it along with other details
+Specify the Worker giving details of the constructor() and void display(), Using the concept of inheritance, specify the class Wages giving details of constructor(), double overtime() and void display().
+
+ans:-
+
+class Worker{
+    String name;
+    double basic;
+    Worker(String name,double basic){
+    this.name=name;
+    this.basic=basic;
+    }
+    void display(){
+        System.out.println("Name of worker: "+name);
+        System.out.println("Basic pay: "+basic);
+    }
+}
+class Wages extends Worker{
+    int hrs;
+    double rate;
+    double wage;
+    Wages(String name,double basic ,int hrs,double rate){
+        super(name,basic);// call Worker constructor
+        this.hrs=hrs;
+        this.rate=rate;
+    }
+    // Method to calculate overtime
+    double overTime(){
+        return hrs*rate;
+    }
+    void display(){
+        wage=basic+overTime();
+        super.display();// display from Worker class
+        System.out.println("Hours worked: "+hrs);
+        System.out.println("Rate per hour: "+rate);
+        System.out.println("Overtime pay: "+overTime());
+        System.out.println("Total monthly wage: "+wage);
+    }
+}
+class WorkerTest {
+    public static void main(String[]args){
+    Wages weges=new Wages("Aditya Jha",18000.0,40,150.0);
+    weges.display();
+
+    }
+}
