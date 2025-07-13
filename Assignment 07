@@ -1,0 +1,43 @@
+Q) Create a base class 'Square' having the instance variable 'side' (datatype double). Initiate variable using a constructor, a method 'getVolume()' that calculates volume and prints it. Create a derived class 'Cylinder' having instance variable 'height' (datatype double). Initiate variables of both classes through constructor, override method 'getVolume()' to calculate volume of cylinder taking 'side' variable of base class as 'radius' and print it. Write a Java program to create above two classes and a test driver main class to test all of the above mentioned inheritance properties.
+
+ans:- 
+
+class Square{
+    //Baseclass Square
+    double side;
+    // Constructor to initialize side
+    Square(double side){
+        this.side=side;
+    }
+    // Method to calculate volume of square
+    void getVolume(){
+    double volume=side*side*side;
+        System.out.println("Volume of square: "+volume);
+    }
+}
+// Derived class Cylinder
+class Cylinder extends Square{
+    double height;
+    // Constructor to initialize side (as radius) and height
+    Cylinder(double radius,double height){
+        super(radius);// calling base class constructor
+        this.height=height;
+    }
+    // Overriding getVolume to calculate the Volume of cylinder
+    @Override
+    void getVolume(){
+        double volume=Math.PI*side*side*height;
+        System.out.println("Volume of cylinder: "+volume);
+    }
+
+}
+class TestDriverr{
+    public static void main(String[] args){
+    // Object of Square
+    Square square=new Square(6.0);
+    square.getVolume();
+    // Object of Cylinder
+    Cylinder cylinder=new Cylinder(3.0,7.0);
+    cylinder.getVolume();
+    }
+}
